@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rally Academy Manager</title>
+<meta name="description" content="Rally: a management dashboard for a tennis academy. Students, schedule, attendance, payments and staff. Concept project by Kisrak Kulacoglu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Parisienne&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2 .7 3.2 2.4 3.6 5.2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+  <symbol id="i-staff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c1-4.2 4-6.5 8-6.5s7 2.3 8 6.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></symbol>
+</svg>
+
+<div class="app">
+  <aside class="side" id="side" aria-label="Main navigation">
+    <a class="logo" href="#dashboard" aria-label="Rally, dashboard"><span class="script">Rally<i aria-hidden="true"></i></span><small>Albufera Tennis Academy</small></a>
+    <nav class="nav" id="nav">
+      <a href="#dashboard" data-view="dashboard"><svg><use href="#i-home"/></svg>Dashboard</a>
+      <a href="#students" data-view="students"><svg><use href="#i-users"/></svg>Students<span class="count num" id="nav-students"></span></a>
+      <a href="#schedule" data-view="schedule"><svg><use href="#i-cal"/></svg>Schedule</a>
+      <a href="#attendance" data-view="attendance"><svg><use href="#i-check"/></svg>Attendance</a>
+      <a href="#payments" data-view="payments"><svg><use href="#i-card"/></svg>Payments<span class="count num" id="nav-overdue"></span></a>
+      <a href="#staff" data-view="staff"><svg><use href="#i-staff"/></svg>Staff</a>
+    </nav>
+    <div class="side-foot">
+      <div class="me"><span class="avatar">MR</span><div><b>Marta Ruiz</b><span>Academy manager</span></div></div>
+      <button class="linkbtn" id="reset">Reset demo data</button>
+      <button class="linkbtn" id="signout">Sign out</button>
+      <span class="muted" style="font-size:12px">Concept project by Kisrak Kulacoglu</span>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <button class="icon-btn menu-btn" id="menu" aria-label="Open navigation" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+      <h1 id="title">Dashboard</h1>
+      <span class="date" id="today"></span>
+      <div class="top-actions">
+        <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button></div>
+        <button class="icon-btn" id="theme" aria-label="Switch light or dark theme"><svg><use href="#i-moon"/></svg></button>
+        <button class="btn btn-primary" id="quick-add"><svg><use href="#i-plus"/></svg><span class="hide-sm">Add student</span></button>
+      </div>
+    </header>
+    <main class="content" id="view" tabindex="-1"></main>
+  </div>
+</div>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Sign in to Rally" hidden>
+  <div class="gate-photo"><img src="img/ball-basket.jpg" alt="A basket of tennis balls, a wooden racket and a leather bag on a clay-red court"><p class="gate-quote">Every lesson,<span>every player,</span>one court.</p></div>
+  <div class="gate-form">
+    <div class="lang gate-lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button></div>
+    <div class="bounce" aria-hidden="true"><div class="float-ball"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="bg1" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#EEF79A"/><stop offset=".55" stop-color="#D4E85A"/><stop offset="1" stop-color="#8FA52A"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#bg1)"/><path d="M14 22c18 10 24 34 12 58" fill="none" stroke="#FFFDF2" stroke-width="3.2" stroke-linecap="round"/><path d="M86 20c-18 12-22 36-10 60" fill="none" stroke="#FFFDF2" stroke-width="3.2" stroke-linecap="round"/></svg></div><div class="ball-shadow"></div></div>
+    <span class="script">Rally</span>
+    <h2>Staff sign in</h2>
+    <form id="signin" novalidate>
+      <label class="field" data-f="email"><span>Work email</span><input class="input" id="si-email" name="email" type="email" autocomplete="username" value="marta@albuferatennis.es"><span class="err"></span></label>
+      <label class="field" data-f="pass"><span>Password</span><input class="input" id="si-pass" name="pass" type="password" autocomplete="current-password" value="demo-court-2026"><span class="err"></span></label>
+      <button class="btn btn-primary" type="submit" style="min-height:46px">Sign in</button>
+      <button type="button" class="linkbtn forgot" id="forgot">Forgot your password?</button>
+    </form>
+    <form id="reset-form" novalidate hidden>
+      <p class="reset-intro">Enter your work email and we’ll send you a link to choose a new password.</p>
+      <label class="field" data-f="remail"><span>Work email</span><input class="input" id="re-email" name="remail" type="email" autocomplete="username"><span class="err"></span></label>
+      <button class="btn btn-primary" type="submit" style="min-height:46px">Send reset link</button>
+      <p class="reset-done" id="reset-done" role="status" hidden></p>
+      <button type="button" class="linkbtn forgot" id="back-signin">← Back to sign in</button>
+    </form>
+    <p class="gate-note">Demo: the details are filled in for you. Rally is a concept project by Kisrak Kulacoglu; there is no real account or server.</p>
+  </div>
+</div>
+<div id="layer"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
